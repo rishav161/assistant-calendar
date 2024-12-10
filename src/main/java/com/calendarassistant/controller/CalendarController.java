@@ -1,14 +1,18 @@
 package com.calendarassistant.controller;
 
-import com.calendarassistant.dto.MeetingRequestDTO;
-import com.calendarassistant.dto.FreeSlotsRequestDTO;
-import com.calendarassistant.model.Meeting;
-import com.calendarassistant.service.CalendarService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.calendarassistant.dto.FreeSlotsRequestDTO;
+import com.calendarassistant.dto.MeetingRequestDTO;
+import com.calendarassistant.model.Meeting;
+import com.calendarassistant.service.CalendarService;
 
 @RestController
 @RequestMapping("/api/calendar")
@@ -16,7 +20,7 @@ public class CalendarController {
     private final CalendarService calendarService;
 
     public CalendarController(CalendarService calendarService) {
-        this.calendarSercalvice = calendarService;
+        this.calendarService = calendarService;
     }
 
     @PostMapping("/schedule-meeting")
